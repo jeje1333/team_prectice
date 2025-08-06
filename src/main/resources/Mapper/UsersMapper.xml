@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fintecho.littleforest.dao.UsersDAO">
+
+<select id="getinfrom" resultType="com.fintecho.littleforest.vo.UsersVO">
+select * from users where user_seq=#{user_seq}
+</select>
+
+<update id="updatepoint" parameterType="com.fintecho.littleforest.vo.UsersVO">
+update users set point=#{point} where user_seq=#{user_seq}</update>
+</mapper>

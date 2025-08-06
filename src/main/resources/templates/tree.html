@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>나무 키우기</title>
+<link rel="stylesheet" th:href="@{/css/tree.css}" />
+</head>
+<body>
+
+	<div class="side-buttons">
+		<button class="button">출석 체크</button>
+		<button class="button">이용 안내</button>
+		<button class="button" id="buy">비료 구매</button>
+	</div>
+
+	<div class="tree-container">
+		<div class="tree-image-placeholder">씨앗을 심어주세요</div>
+
+		<div class="center-bottom-button">
+			<button class="button">씨앗 심기</button>
+		</div>
+	</div>
+
+	<div class="bottom-right-buttons">
+		<button class="button">
+			보유 비료 :<span id="biyro_stock" th:text="${stock.biyro_stock}">0</span>
+			<br>비료 주기
+		</button>
+		<button class="button">
+			보유 물:<span id="water_stock" th:text="${stock.water_stock}">0</span>
+			<br>물 주기
+			<img src="/image/임시물.jpg" width=10px height=10px />
+		</button>
+	</div>
+	<!-- 팝업창 -->
+	<div id="popupModal" class="modal">
+		<div class="modal-content">
+			<span class=close>&times;</span>
+			<h2>실험용</h2>
+			<p>
+				비료 재고 : <span id="biyro_stockm" th:text="${stock.biyro_stock}" >0
+				</span>
+			</p>
+			<p>
+				보유포인트 : <span id="point" th:text="${users.point}">0
+				</span>
+			</p>
+			<button class="button" id="purchase">구매</button>
+			<hr>
+			<div class="modal-content2">
+				<p>이미지</p>
+				가격 :<span id=price>500</span>p<br>
+				<button id=minus>-</button>
+				<span id=soo>1</span>
+				<button id=plus>+</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 스크립트 -->
+	<script src="/js/tree.js">
+</script>
+</body>
+</html>

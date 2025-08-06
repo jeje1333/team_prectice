@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fintecho.littleforest.dao.Growing_TreeDAO">
+
+<select id="getAllStock" resultType="com.fintecho.littleforest.vo.Growing_TreeVO">
+select * from growing_tree
+where user_id=#{user_id}
+</select>
+
+<select id="ifTree" resultType="com.fintecho.littleforest.vo.Growing_TreeVO">
+select count(*) from growing_tree
+where user_id=#{user_id}
+</select>
+
+<insert id="insertTree" parameterType="com.fintecho.littleforest.vo.Growing_TreeVO">
+insert into growing_tree(user_id,tree_level,tree_name,carbon_saved,water_count,water_stock,biyro_stock,last_updated)
+values(
+#{user_id},
+1,
+#{tree_name},
+null,
+0,
+0,
+0,
+SYSDATE
+)
+</insert>
+
+<update id="updatestock" parameterType="com.fintecho.littleforest.vo.Growing_TreeVO">
+update growing_tree set biyro_stock=#{biyro_stock} where user_id=#{user_id}
+</update>
+
+</mapper>
