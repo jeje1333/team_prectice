@@ -29,7 +29,7 @@ window.onclick = (e) => {
 
 purchase.onclick = () => {
 	const point2 = parseInt(point.textContent);
-	const biryo2 = parseInt(biyro_stock.textContent);
+	const biyro2 = parseInt(biyro_stock.textContent);
 	const price2 = parseInt(price.textContent);
 
 	if (point2 >= price2) {
@@ -41,8 +41,8 @@ purchase.onclick = () => {
 			},
 			body: JSON.stringify({ quantity: gaesoo, totalprice: price2 })
 		})
-		/* .then(response => response.json())
-		.then(data => { */
+		.then(response => response.json())
+		.then(data => {
 			biyro_stock.textContent = biyro2 + gaesoo;
 			biyro_stockm.textContent = biyro2 + gaesoo;
 			point.textContent = point2 - price2;
@@ -50,11 +50,11 @@ purchase.onclick = () => {
 			gaesoo = 1;
 			price.textContent = sales;
 			soo.textContent = gaesoo;
-		/* }) */
-		/* .catch(error => {
+		})
+		.catch(error => {
 			console.error("구매 중 오류 발생:", error);
 			alert("서버 오류로 구매에 실패했습니다.");
-		}); */
+		});
 	} else {
 		alert("포인트가 부족합니다.");
 		gaesoo = 1;

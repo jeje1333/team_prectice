@@ -20,12 +20,12 @@ public class PurchaseController {
 	@PostMapping("/purchase")
 	public ResponseEntity<String> purchase(@RequestBody PurchaseRequest request) {
 		int user_id=3;
-//		try {
-//			Growing_TreeVO updateStock=Growing_TreeService.getAllStock(user_id);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			Growing_TreeVO updateStock=Growing_TreeService.getAllStock(user_id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return ResponseEntity.ok("성공");
 
 	}
